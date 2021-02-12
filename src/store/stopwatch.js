@@ -27,8 +27,8 @@ const counter = {
       } else if (state.seconds >= 59) {
         state = {
           ...state,
+          minutes: state.minutes + 1,
           seconds: 0,
-          minutes: state.minutes + 1
         }
       } else {
         state = {
