@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 const subject = new Subject();
 
 const initialState = {
-  seconds: 0,
+  seconds: 55,
   minutes: 0,
   hours: 0,
 };
@@ -20,15 +20,15 @@ const counter = {
     ref.current = setInterval(() => {
       if (state.minutes === 59 && state.seconds >= 59) {
         state = {
-          minutes: 0,
           seconds: 0,
+          minutes: 0,
           hours: state.hours + 1
         };
       } else if (state.seconds >= 59) {
         state = {
           ...state,
-          minutes: state.minutes + 1,
           seconds: 0,
+          minutes: state.minutes + 1,
         }
       } else {
         state = {

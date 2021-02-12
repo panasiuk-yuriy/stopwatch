@@ -1,15 +1,21 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
-const Display = ({ time: {hours,minutes, seconds }}) => {
- 
+const Display = ({ time }) => {
+  const preparedTime = Object.keys(time).map(item => {
+    if (time[item] <= 9) {
+      return '0' + time[item]
+    } else {
+      return time[item]
+    }
+  }).reverse()
+    .join(':')
+
 
   return (
-      <Typography variant="h2">
-        {hours <= 9 ? 0 : null}{hours}:
-        {minutes <= 9 ? 0 : null}{minutes}:
-        {seconds <= 9 ? 0 : null}{seconds}
-      </Typography>
+    <Typography variant="h2">
+      {preparedTime}
+    </Typography>
   );
 }
 
